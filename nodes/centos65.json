@@ -1,0 +1,8 @@
+{
+"host_name": "centos65",
+"run_list":
+	[
+		"recipe[base]",
+		"recipe[mysql]"
+	]
+}
