@@ -2,7 +2,10 @@
 "host_name": "centos65",
 "run_list":
 	[
+		"recipe[yum]",
 		"recipe[base]",
-		"recipe[mysql]"
+		"recipe[apache]",
+		"recipe[mysql]",
+		"recipe[php]"
 	]
 }

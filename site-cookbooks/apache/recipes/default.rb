@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: mysql
+# Cookbook Name:: apache
 # Recipe:: default
 #
 # Copyright 2014, YOUR_COMPANY_NAME
@@ -10,18 +10,11 @@
 case node['platform']
 when "centos"
 
-	%w{mysql-server}.each do |pkg|
+	%w{httpd}.each do |pkg|
 		package pkg do
 			options "--enablerepo=remi"
-			action :install
+        		action :install
 		end
 	end
 
-	service "mysqld" do
-		supports :status => true, :restart => true, :reload => true
-		action [ :enable, :start ]
-	end
-
 end
-
-
