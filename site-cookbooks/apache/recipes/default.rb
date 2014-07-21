@@ -16,5 +16,12 @@ when "centos"
         		action :install
 		end
 	end
+	iptables_rule "httpd"
 
+        service "httpd" do
+                supports :status => true, :restart => true, :reload => true
+                action [ :enable, :start ]
+	end
 end
+
+

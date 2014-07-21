@@ -1,8 +1,9 @@
 {
-"host_name": "centos65",
+"host_name": "tissue",
 "run_list":
 	[
 		"recipe[yum]",
+		"recipe[iptables]",
 		"recipe[base]",
 		"recipe[apache]",
 		"recipe[mysql]",
