@@ -44,8 +44,6 @@ end
 	end
 end
 
-# apps
-
 # add the EPEL repo
 yum_repository 'epel' do
   description 'Extra Packages for Enterprise Linux'
@@ -63,4 +61,25 @@ yum_repository 'remi' do
   fastestmirror_enabled true
   action :create
 end
+
+# add users
+
+data_ids = data_bag('users')
+data_ids.each do |id|
+	u = data_bag_item('users', id)
+	user u['id'] do
+		shell    u['shell']
+		password u['password']
+		supports :manage_home => true, :non_unique => false
+		action   [:create]
+	end
+end
+
+group 'samplegroup' do
+	group_name 'samplegroup'
+	members    ['onodera']
+	action     [:create]
+end
+
+
 
