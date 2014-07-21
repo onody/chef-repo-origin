@@ -1,0 +1,11 @@
+{
+"host_name": "noren",
+"run_list":
+	[
+		"recipe[yum]",
+		"recipe[iptables]",
+		"recipe[base]",
+		"recipe[java]",
+		"recipe[noren6]"
+	]
+}
